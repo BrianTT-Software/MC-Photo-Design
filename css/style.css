@@ -2762,6 +2762,8 @@ ol {
 	}
 	.logo {
 		margin-right: 0;
+		margin: 0px;
+		padding: 0px;
 	}
 	.hs-item {
 		height: auto;
