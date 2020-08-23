@@ -42,6 +42,7 @@ body {
 	font-smoothing: antialiased;
 }
 
+
 h1,
 h2,
 h3,
@@ -2408,7 +2409,7 @@ ol {
 	margin-bottom: 35px;
 }
 
-.contact-form form input {
+.contact-form form input, select {
 	height: 50px;
 	width: 100%;
 	padding-left: 20px;
@@ -2470,6 +2471,11 @@ ol {
 
 .contact-form form textarea::placeholder {
 	color: #444444;
+}
+
+.incluye {
+	text-align: left;
+	padding-left: 20px;
 }
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
