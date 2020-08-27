@@ -47,7 +47,7 @@
                             <li><a href="./servicios.html">Servicios</a></li>
                             <li><a href="./precios.html">Precios</a></li>
                             <li><a href="./galeria.html">Galería</a></li>
-                            <li class="active"><a href="./contacto.html">Contacto</a></li>
+                            <li class="active"><a href="./contacto.php">Contacto</a></li>
                         </ul>
                     </nav>
                     <div id="mobile-menu-wrap"></div>
@@ -112,7 +112,7 @@
                             </div>
                             <div class="ct-text">
                                 <h5>Email</h5>
-                                <p>misaelcruzpr@ gmail.com</p>
+                                <p>ventas@ mcphotodesigns.com</p>
                             </div>
                         </div>
                     </div>
@@ -120,17 +120,42 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="contact-form">
                         <h3>Trabajemos Juntos!</h3>
-                        <form action="#">
-                            <input type="text" placeholder="Nombre">
-                            <input type="text" placeholder="Email">
-                            <select>
+                        <form action="" method="post">
+                            <input id="name" name="name" type="text" placeholder="Nombre">
+                            <input id="email" name="email" type="text" placeholder="Email">
+                            <select id="interest" name="interest">
                                 <option disabled selected>¿Que servicio le interesa?</option>
-                                <option value="fotografia">Fotografía</option>
-                                <option value="diseno">Diseño de Gráficos</option>
-                                <option value="video">Edición de Videos</option>
+                                <option value="Fotografia">Fotografía</option>
+                                <option value="Diseno de Graficos">Diseño de Gráficos</option>
+                                <option value="Edicion de Videos">Edición de Videos</option>
                             </select>
-                            <textarea placeholder="Mensaje"></textarea>
-                            <button type="submit" class="site-btn">Someter</button>
+                            <textarea id="message" name="message" placeholder="Mensaje"></textarea>
+                            <button type="submit" name="submit" class="site-btn">Someter</button>
+
+                            <?php
+                            if (isset ($_POST['submit'])) 
+                            {
+                                $name = $_POST['name'];
+                                $from = $_POST['email'];
+                                $message = $_POST['message'];
+                                $interest = $_POST['interest'];
+                                $subject = "$name esta interesado en el servicio: $interest";
+                                $to = "ventas@mcphotodesigns.com";
+                                $headers = "MIME-VERSION: 1.0" . "\r\n";
+                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                                $headers = "From : <$from>\r\n ";
+
+                                if (mail($to,$subject,$message,$headers))
+                                {
+                                    echo "Gracias por contactarnos!";
+                                }
+                                else 
+                                {
+                                    echo "Oops! Hubo un error enviando el email.";
+                                }
+                            }
+                            ?>
+
                         </form>
                     </div>
                 </div>
@@ -178,7 +203,7 @@
                         <ul>
                             <li><a href="./index.html">Inicio</a></li>
                             <li><a href="./informacion.html">Información</a></li>
-                            <li><a href="./contacto.html">Contacto</a></li>
+                            <li><a href="./contacto.php">Contacto</a></li>
                         </ul>
                         <ul>
                             <li><a href="./galeria.html">Galería</a></li>
